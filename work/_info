@@ -1,0 +1,94 @@
+m255
+K4
+z2
+Z0 !s12c _opt1
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+!s12c _opt
+R1
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dC:/ITI
+T_opt
+!s110 1752240903
+VP96@95]OaV^b]f?;;W3M:3
+Z3 04 13 4 work master_apb_tb fast 0
+=1-f80dac5a9947-68711306-3c7-2da4
+R1
+Z4 !s12f OEM100
+Z5 !s12b OEM100
+Z6 !s124 OEM100
+o-quiet -auto_acc_if_foreign -work work
+Z7 tCvgOpt 0
+n@_opt
+Z8 OL;O;2024.1;79
+R2
+T_opt1
+!s110 1752242720
+Vdl_Gm1Wl6hA@]_5YiKmNb2
+R3
+=6-f80dac5a9947-68711a20-24d-fdc
+R1
+R4
+R5
+R6
+o-quiet -auto_acc_if_foreign -work work +acc
+R7
+n@_opt1
+R8
+vmaster_apb
+2C:\APB\master_apb.v
+Z9 !s110 1752242708
+!i10b 1
+!s100 fJj5]:zeNO?a61Gddl7Xa0
+Io5EWM6UBMfcjK`zdA`M9J0
+Z10 dC:/APB
+w1752242705
+8C:\APB\master_apb.v
+FC:\APB\master_apb.v
+!i122 58
+L0 1 106
+Z11 VDg1SIo80bB@j0V0VzS_@n1
+Z12 OL;L;2024.1;79
+r1
+!s85 0
+31
+Z13 !s108 1752242708.000000
+!s107 C:\APB\master_apb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:\APB\master_apb.v|
+!i113 0
+Z14 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R7
+vmaster_apb_tb
+2C:\APB\master_apb_tb.v
+R9
+!i10b 1
+!s100 JM08g1eLYbT85dWVZSV>X1
+IoBldKZ97NOi`eoMdOKL8Y3
+R10
+w1752241156
+8C:\APB\master_apb_tb.v
+FC:\APB\master_apb_tb.v
+!i122 59
+L0 1 69
+R11
+R12
+r1
+!s85 0
+31
+R13
+!s107 C:\APB\master_apb_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:\APB\master_apb_tb.v|
+!i113 0
+R14
+R7

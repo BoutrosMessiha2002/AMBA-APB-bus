@@ -1,0 +1,69 @@
+module master_apb_tb();
+parameter ADDR_WIDTH=8;
+parameter DATA_WIDTH =32;
+parameter CLK=10;
+
+
+reg PCLK;
+reg PRESETn;
+reg [ADDR_WIDTH-1:0] apb_write_paddr;
+reg [DATA_WIDTH-1:0] apb_write_data;
+reg [ADDR_WIDTH-1:0] apb_read_paddr;
+reg READ_WRITE;
+reg PREADY;
+reg transfer;
+reg [DATA_WIDTH-1:0] PRDATA;
+wire PWRITE;
+wire PSEL;
+wire PENABLE;
+wire [ADDR_WIDTH-1:0] PADDR;
+wire [DATA_WIDTH-1:0] PWDATA;
+wire [DATA_WIDTH-1:0] apb_read_data_out;
+
+master_apb DUT (
+ .PCLK(PCLK),
+ .PRESETn(PRESETn),
+ .apb_write_paddr(apb_write_paddr),
+ .apb_write_data(apb_write_data),
+ .apb_read_paddr(apb_read_paddr),
+ .READ_WRITE(READ_WRITE),
+ .PREADY(PREADY),
+ .transfer(transfer),
+ .PRDATA(PRDATA),
+ .PWRITE(PWRITE),
+ .PSEL(PSEL),
+ .PENABLE(PENABLE),
+ .PADDR(PADDR),
+ .PWDATA(PWDATA),
+ .apb_read_data_out(apb_read_data_out)
+);
+
+initial
+begin
+forever 
+begin
+#CLK PCLK=~PCLK;
+end
+end
+
+initial begin
+PCLK=1'b0;
+PRESETn=1'b0;
+#(CLK*3);
+PRESETn=1'b1;
+#(CLK);
+READ_WRITE=1'b1;
+transfer=1'b0;
+apb_write_paddr='d3;
+apb_write_data='d9;
+PREADY=1'b0;
+PRDATA='d13;
+apb_read_paddr='d7;
+#(CLK);
+transfer=1'b1;
+#(CLK*2);
+transfer=1'b1;
+PREADY=1'b1;
+
+end
+endmodule
