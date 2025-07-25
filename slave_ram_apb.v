@@ -36,18 +36,13 @@ else
 next_state=IDLE;
 
 TRANSFER:
-if(PENABLE==1'b1&&PWRITE==1'b0)
-next_state=READ;
-else if(PENABLE==1'b1&&PWRITE==1'b1)
-next_state=WRITE;
-else
-next_state=TRANSFER;
-
-READ:
 next_state=IDLE;
 
-WRITE:
-next_state=IDLE;
+//READ:
+//next_state=IDLE;
+
+//WRITE:
+//next_state=IDLE;
 
 default:
 next_state=IDLE;
@@ -70,18 +65,17 @@ begin
     end
     TRANSFER:
     begin
-        prdata='b0;
+        PREADY=1'b1;
+	if(PWRITE==1'b0)
+	prdata=memory[paddr];	
+        else
+	 prdata='b0;
+    end
+default:
+begin
+prdata='b0;
         PREADY=1'b0;
-    end
-    READ:
-    begin
-        prdata=memory[paddr];
-        PREADY=1'b1;
-    end
-    WRITE:
-    begin
-        PREADY=1'b1;
-    end
+end
     endcase
 end
 always @(posedge PCLK or negedge PRESETn)
@@ -91,7 +85,7 @@ begin
     for(i=0;i<LOCATION;i=i+1)
     memory[i]<='b0;
 end
-else if(current_state==WRITE)
+else if(current_state==TRANSFER&&PWRITE==1'b1)
 memory[paddr]<=pwdata;
 end
 endmodule
