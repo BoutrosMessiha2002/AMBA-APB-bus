@@ -1,25 +1,22 @@
 C:/APB/master_apb.v {1 {vlog -work work -vopt -stats=none {C:\APB\master_apb.v}
--- Compiling module master_apb_tb
-
-Top level modules:
-	master_apb_tb
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module master_apb
 
 Top level modules:
 	master_apb
 
-} {} {}} C:/APB/master_apb_tb.v {1 {vlog -work work -vopt -stats=none {C:\APB\master_apb_tb.v}
+} {} {}} C:/APB/slave_ram_apb.v {1 {vlog -work work -vopt -stats=none {C:\APB\slave_ram_apb.v}
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module master_apb_tb
+-- Compiling module RAM_slave
 
 Top level modules:
-	master_apb_tb
+	RAM_slave
 
-} {} {}} C:/APB/slave_ram_apb.v {1 {vlog -work work -vopt -stats=none C:/APB/slave_ram_apb.v
+} {} {}} C:/APB/apb_top.v {1 {vlog -work work -vopt -stats=none {C:\APB\apb_top.v}
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module apb_top
 
-} {} {}} C:/APB/apb_top.v {1 {vlog -work work -vopt -stats=none C:/APB/apb_top.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+Top level modules:
+	apb_top
 
 } {} {}}

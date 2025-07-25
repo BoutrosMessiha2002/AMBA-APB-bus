@@ -63,7 +63,6 @@ end
 always@(*)
 begin
 PWDATA='b0;
-temp_read='b0;
 case(current_state)
 IDLE:
 begin
@@ -97,11 +96,10 @@ always @(posedge PCLK or negedge PRESETn)
 begin
 if(!PRESETn)
 apb_read_data_out<='b0;
-else
-apb_read_data_out<=temp_read;
+else if (current_state==ACCESS && PWRITE==1'b0)
+apb_read_data_out<=PRDATA;
 end
 
 assign PWRITE=READ_WRITE;
 assign PADDR= READ_WRITE?apb_write_paddr:apb_read_paddr;
-assign temp_read=PRDATA;
 endmodule

@@ -1,4 +1,4 @@
-module master_apb #(parameter ADDR_WIDTH=8, parameter DATA_WIDTH =32, parameter STATE=2 )(
+module master_apb #(parameter ADDR_WIDTH=8, parameter DATA_WIDTH =8, parameter STATE=2 )(
 input PCLK,
 input PRESETn,
 input [ADDR_WIDTH-1:0] apb_write_paddr,
@@ -96,11 +96,10 @@ always @(posedge PCLK or negedge PRESETn)
 begin
 if(!PRESETn)
 apb_read_data_out<='b0;
-else
-apb_read_data_out<=temp_read;
+else if (current_state==ACCESS && PWRITE==1'b0)
+apb_read_data_out<=PRDATA;
 end
 
 assign PWRITE=READ_WRITE;
 assign PADDR= READ_WRITE?apb_write_paddr:apb_read_paddr;
-assign temp_read=PRDATA;
 endmodule
